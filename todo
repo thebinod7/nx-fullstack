@@ -1,0 +1,5 @@
+# Prisma Packaging
+- Install deps => prisma D,  @prisma/client
+- npx prisma init => Create schema and .env
+- npx prisma migrate dev (Run for every changes in model)
+- npx prisma db seed
