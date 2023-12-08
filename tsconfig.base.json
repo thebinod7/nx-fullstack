@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-verse/prisma-db": ["libs/prisma-db/src/index.ts"],
       "@nx-verse/rs-user": ["libs/rs-user/src/index.ts"]
     }
   },
