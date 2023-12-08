@@ -14,4 +14,9 @@ export class AuthController {
   listUsers() {
     return 'I am user list!';
   }
+
+  @Get('roles')
+  listRoles() {
+    return this.authService.listRoles();
+  }
 }
