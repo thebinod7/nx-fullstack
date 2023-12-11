@@ -7,13 +7,15 @@ import { UserModule } from './user/user.module';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { ConfigModule } from '@nestjs/config';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { JwtService } from '@nestjs/jwt';
 import { MailService } from './mail/mail.service';
+import { AbilityModule } from './ability/ability.module';
 
 @Module({
   controllers: [AuthController, UserController],
   providers: [AuthService, PrismaService, UserService, JwtService, MailService],
   imports: [
+    AbilityModule,
     ConfigModule.forRoot({ isGlobal: true }),
     PrismaDbModule,
     AuthModule,
