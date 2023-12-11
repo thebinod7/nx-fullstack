@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { cloneDeep } from 'lodash';
-export const roles = [
+export const roles: Array<{ id?: number; name: string; isSystem?: boolean }> = [
   {
     id: 1,
     name: 'Admin',
@@ -16,7 +16,12 @@ export const roles = [
   },
 ];
 
-export const permissions = [
+export const permissions: Array<{
+  id?: number;
+  roleId: number;
+  action: string;
+  subject: string;
+}> = [
   {
     id: 1,
     roleId: 1,
@@ -79,7 +84,13 @@ export const permissions = [
   },
 ];
 
-export const users = [
+export const users: Array<{
+  id?: number;
+  firstName?: string;
+  lastName?: string;
+  roleId: number;
+  authAddress: string;
+}> = [
   {
     id: 1,
     firstName: 'Mr',

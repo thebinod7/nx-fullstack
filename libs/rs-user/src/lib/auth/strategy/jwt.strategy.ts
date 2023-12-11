@@ -7,13 +7,14 @@ import { PrismaService } from '@nx-verse/prisma-db';
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   constructor(config: ConfigService, private prisma: PrismaService) {
+    // Extrac Bearer Token from Authorization header request
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: config.get('JWT_SECRET'),
     });
   }
 
-  async validate(payload: { sub: number; email: string }) {
+  async validate(payload: { sub: number; authAddress: string }) {
     const user = await this.prisma.user.findUnique({
       where: { id: payload.sub },
     });

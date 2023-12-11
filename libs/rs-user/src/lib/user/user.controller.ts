@@ -8,10 +8,14 @@ import {
   Param,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { EditUserDto } from './dto';
 import { UserService } from './user.service';
 import { SignupDto } from '../auth/dto';
+import { GetUser } from '../auth/decorator';
+import { User } from '@prisma/client';
+import { JwtGuard } from '../auth/guard';
 
 // @UseGuards(JwtGuard)
 @Controller('users')
@@ -24,11 +28,12 @@ export class UserController {
     return this.userService.createUser(dto);
   }
 
-  @HttpCode(HttpStatus.OK)
-  //   getMe(@GetUser() user: User) {
-  //     if (user.otp) delete user.otp;
-  //     return user;
-  //   }
+  @UseGuards(JwtGuard)
+  @Get('me')
+  getMe(@GetUser() user: User) {
+    if (user.otp) delete user.otp;
+    return user;
+  }
 
   //   @HttpCode(HttpStatus.OK)
   //   @Patch('profile')
