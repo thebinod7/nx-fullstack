@@ -6,11 +6,17 @@ import { PrismaDbModule, PrismaService } from '@nx-verse/prisma-db';
 import { UserModule } from './user/user.module';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   controllers: [AuthController, UserController],
   providers: [AuthService, PrismaService, UserService],
-  imports: [PrismaDbModule, AuthModule, UserModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    PrismaDbModule,
+    AuthModule,
+    UserModule,
+  ],
   exports: [AuthModule, UserModule],
 })
 export class RsUserModule {}
