@@ -1,22 +1,32 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { SignupDto, LoginDto, OtpDto, WalletLoginDto } from './dto';
 
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @Post('')
-  signup() {
-    return this.authService.signup();
+  @HttpCode(HttpStatus.OK)
+  @Post('signup')
+  singup(@Body() dto: SignupDto) {
+    return this.authService.singup(dto);
   }
 
-  @Get('')
-  listUsers() {
-    return 'I am user list!';
+  @HttpCode(HttpStatus.OK)
+  @Post('login')
+  login(@Body() dto: LoginDto) {
+    return this.authService.login(dto);
   }
 
-  @Get('roles')
-  listRoles() {
-    return this.authService.listRoles();
+  @HttpCode(HttpStatus.OK)
+  @Post('wallet-login')
+  walletLogin(@Body() dto: WalletLoginDto) {
+    return this.authService.walletLogin(dto);
+  }
+
+  @HttpCode(HttpStatus.OK)
+  @Post('otp')
+  auth(@Body() dto: OtpDto) {
+    return this.authService.saveAndSendOTP(dto);
   }
 }
