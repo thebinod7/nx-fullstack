@@ -10,16 +10,26 @@ import { ConfigModule } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { MailService } from './mail/mail.service';
 import { AbilityModule } from './ability/ability.module';
+import { RolesModule } from './roles/roles.module';
+import { RolesService } from './roles/roles.service';
 
 @Module({
   controllers: [AuthController, UserController],
-  providers: [AuthService, PrismaService, UserService, JwtService, MailService],
+  providers: [
+    AuthService,
+    PrismaService,
+    UserService,
+    JwtService,
+    MailService,
+    RolesService,
+  ],
   imports: [
     AbilityModule,
     ConfigModule.forRoot({ isGlobal: true }),
     PrismaDbModule,
     AuthModule,
     UserModule,
+    RolesModule,
   ],
   exports: [AuthModule, UserModule],
 })
