@@ -3,11 +3,14 @@ import { AuthModule } from './auth/auth.module';
 import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
 import { PrismaDbModule, PrismaService } from '@nx-verse/prisma-db';
+import { UserModule } from './user/user.module';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
 
 @Module({
-  controllers: [AuthController],
-  providers: [AuthService, PrismaService],
-  exports: [AuthModule],
-  imports: [PrismaDbModule, AuthModule],
+  controllers: [AuthController, UserController],
+  providers: [AuthService, PrismaService, UserService],
+  imports: [PrismaDbModule, AuthModule, UserModule],
+  exports: [AuthModule, UserModule],
 })
 export class RsUserModule {}

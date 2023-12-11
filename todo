@@ -1,5 +1,14 @@
 # Prisma Packaging
-- Install deps => prisma D,  @prisma/client
+
+- Install deps => prisma D, @prisma/client
 - npx prisma init => Create schema and .env
 - npx prisma migrate dev (Run for every changes in model)
 - npx prisma db seed
+
+# Create RS User
+
+- Transfer User Module
+- Transfer Auth Module
+- Transfer Mail Module
+- Transfer Ability Module
+- Transfer Role Module
