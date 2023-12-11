@@ -65,7 +65,7 @@ export class AuthService {
         template: EMAIL_TEMPLATES.LOGIN,
         subject: 'OTP for login',
       };
-      // await this.mailSevice.sendUserConfirmation(context, otp);
+      await this.mailSevice.sendUserConfirmation(context, otp);
       return user;
     } catch (err) {
       throw err;

@@ -5,6 +5,8 @@ import { MailService } from './mail.service';
 import { join } from 'path';
 import { ConfigService } from '@nestjs/config';
 
+const EMAIL_TEMPLATE_DIR = join(__dirname, './assets/email-templates');
+
 @Module({
   imports: [
     MailerModule.forRootAsync({
@@ -22,7 +24,7 @@ import { ConfigService } from '@nestjs/config';
           from: `"No Reply" <${config.get('EMAIL_USER')}>`,
         },
         template: {
-          dir: join(__dirname, './templates'),
+          dir: EMAIL_TEMPLATE_DIR,
           adapter: new HandlebarsAdapter(),
           options: {
             strict: true,
