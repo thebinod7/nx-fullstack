@@ -61,21 +61,21 @@ Start the server
 Go to `apps/nest-api/app.module.ts` and see the implementation
 
 ```javascript
-import { RsUserModule } from '@nx-verse/rs-user';
+import { RsUserModule } from '@nx-verse/rumsan-user';
 import { PrismaDbModule, PrismaService } from '@nx-verse/prisma-db';
 
 const STATIC_FILES_PATH = join(__dirname, 'assets');
 
 @Module({
-  imports: [
-    ServeStaticModule.forRoot({
-      rootPath: STATIC_FILES_PATH,
-    }),
-    PrismaDbModule,
-    RsUserModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService, PrismaService],
+	imports: [
+		ServeStaticModule.forRoot({
+			rootPath: STATIC_FILES_PATH,
+		}),
+		PrismaDbModule,
+		RsUserModule,
+	],
+	controllers: [AppController],
+	providers: [AppService, PrismaService],
 })
 export class AppModule {}
 ```
