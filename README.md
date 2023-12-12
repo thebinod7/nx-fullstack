@@ -1,4 +1,4 @@
-# Rumsan Workspace
+# Nx Workspace
 
 A Monorepo for NestJS and Prisma based projects.
 
