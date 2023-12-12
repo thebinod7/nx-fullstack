@@ -4,7 +4,7 @@ import { RolesService } from './roles.service';
 import { PrismaService } from '@nx-verse/prisma-db';
 
 @Module({
-  controllers: [RolesController],
-  providers: [RolesService, PrismaService],
+	controllers: [RolesController],
+	providers: [RolesService, PrismaService],
 })
 export class RolesModule {}
