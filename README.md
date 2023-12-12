@@ -33,21 +33,16 @@ Go to the project directory
 
 Setup environment variables. Add following details to .env file inside project root directory.
 
-`DATABASE_URL=postgres://UN:PW@HOST:PORT/DB`
-
-`JWT_SECRET=hello12345xyz`
-
-`OTP_SECRET=abcdxyz1234998`
-
-`MAIL_HOST=smtp.gmail.com`
-
-`EMAIL_PORT=465`
-
-`EMAIL_USER=YOUR_EMAIL_ADDRESS`
-
-`EMAIL_PASS=YOU_APP_PASSCODE`
-
-`JWT_EXPIRY_TIME=60m`
+```bash
+DATABASE_URL=postgres://UN:PW@HOST:PORT/DB
+JWT_SECRET=hello12345xyz
+OTP_SECRET=abcdxyz1234998
+MAIL_HOST=smtp.gmail.com
+EMAIL_PORT=465
+EMAIL_USER=YOUR_EMAIL_ADDRESS
+EMAIL_PASS=YOU_APP_PASSCODE
+JWT_EXPIRY_TIME=60m
+```
 
 Install dependencies
 
