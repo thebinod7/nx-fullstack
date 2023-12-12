@@ -60,7 +60,7 @@ export class AuthService {
         otp
       );
       const context = {
-        name: dto.firstName,
+        name: user.firstName,
         to: dto.authAddress,
         template: EMAIL_TEMPLATES.LOGIN,
         subject: 'OTP for login',
