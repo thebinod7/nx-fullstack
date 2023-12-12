@@ -1,5 +1,5 @@
 import { HttpException, Injectable } from '@nestjs/common';
-import { PrismaService } from '@nx-verse/prisma-db';
+import { PrismaService } from '@rumsan-prisma/prisma-db';
 import {
 	CreatePermissionDto,
 	CreateRoleDto,

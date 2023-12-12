@@ -15,8 +15,8 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@nx-verse/prisma-db": ["libs/prisma-db/src/index.ts"],
-			"@nx-verse/rumsan-user": ["libs/rumsan-user/src/index.ts"]
+			"@rumsan-prisma/prisma-db": ["libs/prisma-db/src/index.ts"],
+			"@rumsan-prisma/rumsan-user": ["libs/rumsan-user/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

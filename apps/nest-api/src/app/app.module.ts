@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { join } from 'path';
-import { RsUserModule } from '@nx-verse/rumsan-user';
-import { PrismaDbModule, PrismaService } from '@nx-verse/prisma-db';
+import { RsUserModule } from '@rumsan-prisma/rumsan-user';
+import { PrismaDbModule, PrismaService } from '@rumsan-prisma/prisma-db';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
