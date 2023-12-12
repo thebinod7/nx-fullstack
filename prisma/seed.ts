@@ -86,8 +86,8 @@ export const permissions: Array<{
 
 export const users: Array<{
   id?: number;
-  firstName?: string;
-  lastName?: string;
+  firstName: string;
+  lastName: string;
   roleId: number;
   authAddress: string;
 }> = [

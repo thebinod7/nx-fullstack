@@ -30,8 +30,8 @@ CREATE TABLE "users" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "authAddress" TEXT NOT NULL,
     "authType" "AuthType" NOT NULL DEFAULT 'Email',
-    "firstName" TEXT,
-    "lastName" TEXT,
+    "firstName" TEXT NOT NULL,
+    "lastName" TEXT NOT NULL,
     "roleId" INTEGER NOT NULL,
     "otp" TEXT,
 

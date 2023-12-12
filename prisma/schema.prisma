@@ -50,8 +50,8 @@ model User {
   authAddress String @unique
   authType    AuthType @default(Email)  
 
-  firstName   String?
-  lastName    String?
+  firstName   String
+  lastName    String
 
   role    Role @relation(fields: [roleId], references: [id])
   roleId Int  @db.Integer()

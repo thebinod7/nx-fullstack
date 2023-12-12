@@ -7,7 +7,7 @@ import { ConfigService } from '@nestjs/config';
 import { MailService } from '../mail/mail.service';
 import { EMAIL_TEMPLATES } from '../constants';
 import { UserService } from '../user/user.service';
-totp.options = { step: 120 };
+totp.options = { step: 150 };
 
 @Injectable()
 export class AuthService {
@@ -34,12 +34,13 @@ export class AuthService {
     try {
       const OTP_SECRET = this.config.get('OTP_SECRET');
       const { otp, authAddress } = dto;
-      const isValid = totp.check(otp, OTP_SECRET);
-      if (!isValid) throw new ForbiddenException('OTP did not match!');
       // Get user by authAddress
       const user = await this.userService.getUserByAuthAddress(authAddress);
       if (!user) throw new ForbiddenException('User not found!');
-      delete user.otp;
+      if (otp !== user.otp) throw new ForbiddenException('OTP did not match!');
+      // Validate OTP
+      const isValid = totp.check(otp, OTP_SECRET);
+      if (!isValid) throw new ForbiddenException('OTP did not match!');
       // Sign token
       return this.signToken(user.id, user.authAddress);
     } catch (err) {
@@ -65,6 +66,7 @@ export class AuthService {
         template: EMAIL_TEMPLATES.LOGIN,
         subject: 'OTP for login',
       };
+      if (user.otp) delete user.otp;
       await this.mailSevice.sendUserConfirmation(context, otp);
       return user;
     } catch (err) {
