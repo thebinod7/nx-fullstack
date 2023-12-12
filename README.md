@@ -1,6 +1,6 @@
 # Nx Workspace
 
-A Monorepo for NestJS and Prisma based projects.
+A Monorepo for NestJS and Prisma based projects implementing a user management library.
 
 ## Prerequisite
 
