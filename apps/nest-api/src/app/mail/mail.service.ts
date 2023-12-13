@@ -1,18 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
+import { SendOTPDto } from './dto';
 
 @Injectable()
 export class MailService {
 	constructor(private mailerService: MailerService) {}
 
-	async sendOTPMail(context: any) {
+	async sendOTPMail(data: SendOTPDto) {
 		await this.mailerService.sendMail({
-			to: context.to,
-			subject: context.subject || 'Subject not sent',
-			template: context.template,
+			to: data.to,
+			subject: data.subject || 'Subject not sent',
+			template: data.template,
 			context: {
-				name: context.name,
-				otp: context.otp,
+				name: data.name,
+				otp: data.otp,
 			},
 		});
 	}
