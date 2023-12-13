@@ -1,6 +1,11 @@
 import { Module } from '@nestjs/common';
 import { join } from 'path';
-import { RsUserModule, AuthModule, JwtGuard } from '@rumsan-prisma/rumsan-user';
+import {
+	RsUserModule,
+	AuthModule,
+	JwtGuard,
+	AbilitiesGuard,
+} from '@rumsan-prisma/rumsan-user';
 import { PrismaDbModule, PrismaService } from '@rumsan-prisma/prisma-db';
 
 import { AppController } from './app.controller';
@@ -19,6 +24,6 @@ const STATIC_FILES_PATH = join(__dirname, 'assets');
 		AuthModule,
 	],
 	controllers: [AppController],
-	providers: [AppService, PrismaService, JwtGuard],
+	providers: [AppService, PrismaService, JwtGuard, AbilitiesGuard],
 })
 export class AppModule {}
