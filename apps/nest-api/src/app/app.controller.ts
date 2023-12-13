@@ -6,12 +6,13 @@ import {
 	CheckAbilities,
 	JwtGuard,
 } from '@rumsan-prisma/rumsan-user';
+import { ACTIONS, SUBJECTS } from '../constants';
 
 @Controller('app')
 export class AppController {
 	constructor(private readonly appService: AppService) {}
 
-	@CheckAbilities({ action: 'read', subject: 'user' })
+	@CheckAbilities({ action: ACTIONS.READ, subject: SUBJECTS.USER })
 	@UseGuards(JwtGuard, AbilitiesGuard)
 	@Get()
 	getData() {
