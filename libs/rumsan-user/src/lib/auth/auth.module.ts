@@ -3,12 +3,11 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { PrismaService } from '@rumsan-prisma/prisma-db';
 import { JwtModule } from '@nestjs/jwt';
-import { MailModule } from '../mail/mail.module';
 import { UserModule } from '../user/user.module';
 import { JwtStrategy } from './strategy';
 
 @Module({
-	imports: [JwtModule.register({}), MailModule, UserModule],
+	imports: [JwtModule.register({}), UserModule],
 	controllers: [AuthController],
 	providers: [AuthService, JwtStrategy, PrismaService],
 })

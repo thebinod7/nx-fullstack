@@ -8,10 +8,10 @@ import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { ConfigModule } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
-import { MailService } from './mail/mail.service';
 import { AbilityModule } from './ability/ability.module';
 import { RolesModule } from './roles/roles.module';
 import { RolesService } from './roles/roles.service';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 
 @Module({
 	controllers: [AuthController, UserController],
@@ -20,11 +20,11 @@ import { RolesService } from './roles/roles.service';
 		PrismaService,
 		UserService,
 		JwtService,
-		MailService,
 		RolesService,
 	],
 	imports: [
 		AbilityModule,
+		EventEmitterModule.forRoot({ maxListeners: 10, ignoreErrors: false }),
 		ConfigModule.forRoot({ isGlobal: true }),
 		PrismaDbModule,
 		AuthModule,

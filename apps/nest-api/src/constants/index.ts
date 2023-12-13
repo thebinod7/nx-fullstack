@@ -16,3 +16,7 @@ export const SUBJECTS = {
 export const EMAIL_TEMPLATES = {
 	LOGIN: 'login',
 };
+
+export const EVENTS = {
+	SEND_OTP_EMAIL: 'send-otp-email',
+};
