@@ -1,13 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
 
 import { AppService } from './app.service';
+import { JwtGuard } from '@rumsan-prisma/rumsan-user';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+	constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getData() {
-    return this.appService.getData();
-  }
+	@UseGuards(JwtGuard)
+	@Get()
+	getData() {
+		return this.appService.getData();
+	}
 }
