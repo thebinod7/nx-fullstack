@@ -1,11 +1,7 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 
 import { AppService } from './app.service';
-import {
-	AbilitiesGuard,
-	CheckAbilities,
-	JwtGuard,
-} from '@rumsan-prisma/rumsan-user';
+import { AbilitiesGuard, CheckAbilities, JwtGuard } from '@rumsan/user';
 import { ACTIONS, SUBJECTS } from '../constants';
 
 @Controller('app')

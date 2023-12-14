@@ -61,8 +61,8 @@ Start the server
 Go to `apps/nest-api/app.module.ts` and see the implementation
 
 ```javascript
-import { RsUserModule } from '@rumsan-prisma/rumsan-user';
-import { PrismaDbModule, PrismaService } from '@rumsan-prisma/prisma-db';
+import { RsUserModule } from '@rumsan/user';
+import { PrismaDbModule, PrismaService } from '@rumsan/prisma';
 
 const STATIC_FILES_PATH = join(__dirname, 'assets');
 
